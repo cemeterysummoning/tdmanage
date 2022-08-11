@@ -1,0 +1,22 @@
+{
+  "name": "tdmanage",
+  "version": "1.0.2",
+  "description": "CLI tool to manage todo lists, calendars and tasks",
+  "main": "index.js",
+  "scripts": {
+    "test": "manage"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "commander": "^9.4.0",
+    "conf": "^10.2.0",
+    "inquirer": "^9.1.0",
+    "inquirer-date-prompt": "^2.0.1"
+  },
+  "bin": {
+    "manage": "./index.js"
+  },
+  "type": "module"
+}
