@@ -31,6 +31,7 @@ if (!e) {
         isRepeating: false,
         repeat: [0, []]
     }]
+    config.set('events-list', e)
 }
 
 program
@@ -38,7 +39,7 @@ program
     .description('Manages todo list. Will list contents of todo by default')
     .option('-a, --add', 'Add task to the todo list')
     .option('-m, --mark', 'Mark tasks as done')
-    .option('-d, --delete <task>', 'Deletes task with specified name, "all" to delete all')
+    .option('-d, --delete <task>', 'Deletes task with specified name ID')
     .action((options, command) => {
         if (options.done && options.add && options.delete && options.edit) {
             console.log(
@@ -65,7 +66,7 @@ program
     .command('events')
     .description('Manages events. Lists events in the next week by default')
     .option('-a, --add', 'Add an event to the list')
-    .option('-d, --delete <task>', 'Delete an event')
+    .option('-d, --delete <task>', 'Delete an event by name ID')
     .action((options, command) => {
         if (options.add) {
             addEvent();

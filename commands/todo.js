@@ -19,7 +19,7 @@ export function list() {
     const monthsList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Oct', 'Nov', 'Dec'];
     const daysList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
-    if (todoList && todoList.length) {
+    if (todoList.length > 0) {
         console.log(
             chalk.magenta('Not done:')
         )
