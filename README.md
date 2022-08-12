@@ -13,3 +13,9 @@ To start, run `manage help` to see the possible commands.
 https://user-images.githubusercontent.com/80844905/184218259-bb7674d6-3e1c-4349-882f-b17781b1693c.mp4
 
 `manage todos` keeps track of your tasks, with due date support included. `manage events` works in a similar way, but it keeps track of specific events and weekly occurrences. 
+
+
+# TODO
+* Add a tagging/filtering system
+* Add tasks that refresh daily 
+* Make the calendar able to display more than a week of information
