@@ -29,10 +29,14 @@ export function list() {
                 chalk.magentaBright(`✗ ${task.text}`)
             );
             console.log(
-                chalk.magentaBright(`\tDescription: ${task.description} \n`) + 
-                chalk.magentaBright(`\tDue ${daysList[specDate.getDay()]}, ${monthsList[specDate.getMonth()]} ${specDate.getDate()}, ${specDate.getFullYear()} \n`) + 
-                chalk.magentaBright(`\tat  ${prepend_zeroes(specDate.getHours())}:${prepend_zeroes(specDate.getMinutes())}`)
+                chalk.magentaBright(`\tDescription: ${task.description}`)
             )
+            if (task.isDue) {
+                console.log(
+                    chalk.magentaBright(`\tDue ${daysList[specDate.getDay()]}, ${monthsList[specDate.getMonth()]} ${specDate.getDate()}, ${specDate.getFullYear()} \n`) + 
+                    chalk.magentaBright(`\tat  ${prepend_zeroes(specDate.getHours())}:${prepend_zeroes(specDate.getMinutes())}`)
+                )
+            }
         })
         console.log(
             chalk.blue('Done:')
@@ -72,20 +76,41 @@ export function add() {
                 type: "input"
             },
             {
-                name: "date",
-                message: "Input date the task is due (dd [month] yyyy hh:mm):",
-                type: "input"
+                name: "isDue",
+                message: "Does this task have a due date?",
+                type: "list",
+                choices: ['Yes', 'No']
             }
         ])
         .then(answer => {
-            todoList.push({
-                text: answer.taskText,
-                description: answer.describeTask,
-                date: Date.parse(answer.date), 
-                done: false
-            })
-            config.set('todo-list', todoList);
-        })
+            if (answer.isDue == 'Yes') {
+                inquirer.prompt([
+                    {
+                        name: "date",
+                        message: "Input date the task is due (dd [month] yyyy hh:mm):",
+                        type: "input"
+                    }
+                ]).then(answerDate => {
+                    todoList.push({
+                        text: answer.taskText,
+                        description: answer.describeTask, 
+                        done: false,
+                        isDue: true,
+                        date: Date.parse(answerDate.date),
+                    })
+                })
+            } else {
+                todoList.push({
+                    text: answer.taskText,
+                    description: answer.describeTask, 
+                    done: false,
+                    isDue: false,
+                    date: 0,
+                })
+            }
+            
+            
+        }).then(() => config.set('todo-list', todoList))
     
 }
 

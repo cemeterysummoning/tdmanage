@@ -15,24 +15,22 @@ import { print_week } from './commands/calendar.js'
 let td = config.get('todo-list')
 let e = config.get('events-list')
 if (!td) {
-    td = []
-    td.push({
+    td = [{
         text: 'Epoch',
         description: 'UNIX time 0',
         date: 0,
-        done: false
-    })
+        done: true
+    }]
     config.set('todo-list', td)
 }
 if (!e) {
-    e = []
-    e.push({
+    e = [{
         name: 'Epoch',
         description: 'UNIX time 0',
         date: 0,
         isRepeating: false,
         repeat: [0, []]
-    })
+    }]
 }
 
 program
