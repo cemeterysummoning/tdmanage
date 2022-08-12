@@ -19,3 +19,4 @@ https://user-images.githubusercontent.com/80844905/184218259-bb7674d6-3e1c-4349-
 * Add a tagging/filtering system
 * Add tasks that refresh daily 
 * Make the calendar able to display more than a week of information
+* Add ability to synchronize with online calendars (through ics)
