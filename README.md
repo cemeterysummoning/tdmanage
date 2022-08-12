@@ -11,3 +11,5 @@ To start, run `manage help` to see the possible commands.
 `manage` will keep track of your todos and the events you have, and display a calendar when prompted. 
 
 https://user-images.githubusercontent.com/80844905/184218259-bb7674d6-3e1c-4349-882f-b17781b1693c.mp4
+
+`manage todos` keeps track of your tasks, with due date support included. `manage events` works in a similar way, but it keeps track of specific events and weekly occurrences. 
